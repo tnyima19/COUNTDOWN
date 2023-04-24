@@ -1,9 +1,9 @@
 import React from "react";
 
-function Third(props){
+function Fourth(props){
     return(<div>
         {props.letter}
     </div>)
 }
 
-export default Third;
+export default Fourth;
