@@ -1,5 +1,4 @@
 import React from "react";
-import App from "./App.js"
 import First from "./First";
 import Second from "./Second";
 import Third from "./Third";
