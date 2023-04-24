@@ -1,7 +1,9 @@
 import React from "react";
 
-function First(){
+function First(props){
     return(<div>
-        
-    </div>)
+        {props.letters}
+    </div>);
 }
+
+export default First;
