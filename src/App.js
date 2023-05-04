@@ -3,40 +3,41 @@ import './App.css';
 import Page from "./Page";
 
 
-
 function App() {
-  const [count, update] = useState(0)
+  let vowels = ["A","E","I","O","U"];
+  let consonant = ["B", "C", "D", "F", "G", "H", "J", "K","L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"];
 
-  function addLetters(){
-    if(count <= 9){
-      update(prevCount => prevCount + 1);
-    }
-  }
-  let vowels = ['A','E','I','O','U'];
-  let consonant = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K','L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
+  const [acronym, addLetters] = useState("")
+  
 
-  let acronym = ""
+  
   function getRandomArbitrary(left, right){
     return Math.random() * (right - left +1) + left;
   }
   function vowelButton(){
     let rand_num = getRandomArbitrary(0,4);
-    acronym = acronym + vowels[rand_num]; 
+    let int_num = Math.floor(rand_num);
+    let letter =vowels[int_num];
+    console.log(int_num)
+    addLetters(acronym + letter)
   }
   function consonantButton(){
     let rand_num = getRandomArbitrary(0,21);
-    acronym = acronym + consonant[rand_num];
+    let int_num = Math.floor(rand_num);
+    let letter = consonant[int_num];
+    console.log(int_num)
+    console.log(letter)
+    addLetters(acronym + letter)
   }
 
 
   return (
     <div>
-      <h1>WELCOME TO COUNTDOWN</h1>
-      <Page 
-      acronym = {{acronym}}
-      />
-      <button className='vowelButton' onPress={vowelButton} onclick={addLetters} title="Learn More" color= "#841584">VOWEL</button>
-      <button className="consonantButton" onPress={consonantButton} onClick={addLetters}>CONSONANT </button>
+      <h1>Hello Countydown</h1>
+      <h1>{acronym}</h1>
+      <Page acronym = {{acronym}}/>
+      <button onClick={vowelButton}>VowelButton</button>
+      <button onClick={consonantButton}>ConsonantButton</button>
     </div>
   );
 }
